@@ -1,4 +1,12 @@
+using DataAccessLibrary.Models;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
+
+//+>>20241229
+builder.Services.AddDbContext<MypersonaldbContext>(options =>
+options.UseSqlServer(builder.Configuration.GetConnectionString("MyDatabase")));
+//+<<20241229
 
 // Add services to the container.
 
