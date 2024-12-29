@@ -1,0 +1,59 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35527.113 d17.12
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyWebServer", "MyWebServer\MyWebServer.csproj", "{02C067E0-4522-468C-B678-FE97940EC420}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccessLibrary", "DataAccessLibrary\DataAccessLibrary.csproj", "{786A40AC-30BA-434A-8307-3F243AA660D8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Script", "Script\Script.csproj", "{51EE3F9D-3717-40ED-9A25-1EB0D1101217}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MauiBlazorApp", "MauiBlazorApp\MauiBlazorApp\MauiBlazorApp.csproj", "{D1E5EBDB-3041-4E57-8D43-E9F8EB230022}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MauiBlazorApp.Shared", "MauiBlazorApp\MauiBlazorApp.Shared\MauiBlazorApp.Shared.csproj", "{387FC687-9272-4658-9BED-031BF4555A3E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MauiBlazorApp.Web", "MauiBlazorApp\MauiBlazorApp.Web\MauiBlazorApp.Web.csproj", "{33E48D63-8A83-4466-9878-ED170DA7707A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MauiBlazorApp.Web.Client", "MauiBlazorApp\MauiBlazorApp.Web.Client\MauiBlazorApp.Web.Client.csproj", "{77AA0122-E6CA-4251-8F33-68D2CA0B3FD0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{02C067E0-4522-468C-B678-FE97940EC420}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{02C067E0-4522-468C-B678-FE97940EC420}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{02C067E0-4522-468C-B678-FE97940EC420}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{02C067E0-4522-468C-B678-FE97940EC420}.Release|Any CPU.Build.0 = Release|Any CPU
+		{786A40AC-30BA-434A-8307-3F243AA660D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{786A40AC-30BA-434A-8307-3F243AA660D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{786A40AC-30BA-434A-8307-3F243AA660D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{786A40AC-30BA-434A-8307-3F243AA660D8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{51EE3F9D-3717-40ED-9A25-1EB0D1101217}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{51EE3F9D-3717-40ED-9A25-1EB0D1101217}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{51EE3F9D-3717-40ED-9A25-1EB0D1101217}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{51EE3F9D-3717-40ED-9A25-1EB0D1101217}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D1E5EBDB-3041-4E57-8D43-E9F8EB230022}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1E5EBDB-3041-4E57-8D43-E9F8EB230022}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D1E5EBDB-3041-4E57-8D43-E9F8EB230022}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{D1E5EBDB-3041-4E57-8D43-E9F8EB230022}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D1E5EBDB-3041-4E57-8D43-E9F8EB230022}.Release|Any CPU.Build.0 = Release|Any CPU
+		{387FC687-9272-4658-9BED-031BF4555A3E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{387FC687-9272-4658-9BED-031BF4555A3E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{387FC687-9272-4658-9BED-031BF4555A3E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{387FC687-9272-4658-9BED-031BF4555A3E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{33E48D63-8A83-4466-9878-ED170DA7707A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{33E48D63-8A83-4466-9878-ED170DA7707A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{33E48D63-8A83-4466-9878-ED170DA7707A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{33E48D63-8A83-4466-9878-ED170DA7707A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{77AA0122-E6CA-4251-8F33-68D2CA0B3FD0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77AA0122-E6CA-4251-8F33-68D2CA0B3FD0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77AA0122-E6CA-4251-8F33-68D2CA0B3FD0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77AA0122-E6CA-4251-8F33-68D2CA0B3FD0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
