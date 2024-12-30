@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\MyWebServer\MyWebServer.csproj" />
+    <ProjectReference Include="..\MauiBlazorApp.Shared\MauiBlazorApp.Shared.csproj" />
     <ProjectReference Include="..\MauiBlazorApp.Web.Client\MauiBlazorApp.Web.Client.csproj" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="9.0.0" />
   </ItemGroup>

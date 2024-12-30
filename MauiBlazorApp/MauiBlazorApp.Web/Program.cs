@@ -12,6 +12,14 @@ builder.Services.AddRazorComponents()
 // Add device-specific services used by the MauiBlazorApp.Shared project
 builder.Services.AddSingleton<IFormFactor, FormFactor>();
 
+//+>>20241229
+builder.Services.AddHttpClient("API", client =>
+{
+    client.BaseAddress = new Uri("http://localhost:7048");
+});
+builder.Services.AddScoped<DeutschAdjSuffixService>();
+//+<<20241229
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
