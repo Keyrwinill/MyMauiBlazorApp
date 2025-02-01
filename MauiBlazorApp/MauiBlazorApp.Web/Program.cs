@@ -11,14 +11,19 @@ builder.Services.AddRazorComponents()
 
 // Add device-specific services used by the MauiBlazorApp.Shared project
 builder.Services.AddSingleton<IFormFactor, FormFactor>();
-
-//+>>20241229
-builder.Services.AddHttpClient("API", client =>
+//+>>20250105
+builder.Services.AddSingleton<IDeutschAdjSuffixService, DeutschAdjSuffixService>();
+builder.Services.AddHttpClient<DeutschAdjSuffixService>(client =>
 {
-    client.BaseAddress = new Uri("http://localhost:7048");
+    var baseUri = builder.Configuration["ApiSettings:BaseUri"];
+    if (string.IsNullOrEmpty(baseUri))
+    {
+        throw new InvalidOperationException("API Base URI is not configured.");
+    }
+    client.BaseAddress = new Uri(baseUri);
+    client.Timeout = TimeSpan.FromSeconds(30);
 });
-builder.Services.AddScoped<DeutschAdjSuffixService>();
-//+<<20241229
+//+<<20250105
 
 var app = builder.Build();
 

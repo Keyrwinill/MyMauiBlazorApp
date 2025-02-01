@@ -1,0 +1,20 @@
+﻿@page "/person"
+@inject DeutschAdjSuffixService DeutschAdjSuffixService
+
+<PageTitle>Person</PageTitle>
+
+<h2>Person</h2>
+<label>Identify: </label>
+<input @bind="userInput" placeholder="Please enter ID" />
+<button @onclick="ReadInput">Search</button>
+<p>@output</p>
+
+@code {
+	private string userInput = "";
+	private string output = "";
+
+	private void ReadInput()
+	{
+		output = userInput;
+	}
+}

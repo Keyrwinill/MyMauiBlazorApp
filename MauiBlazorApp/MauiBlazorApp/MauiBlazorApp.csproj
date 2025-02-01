@@ -67,6 +67,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\DataAccessLibrary\DataAccessLibrary.csproj" />
     <ProjectReference Include="..\..\MyWebServer\MyWebServer.csproj" />
     <ProjectReference Include="..\MauiBlazorApp.Shared\MauiBlazorApp.Shared.csproj" />
   </ItemGroup>

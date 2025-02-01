@@ -1,0 +1,131 @@
+﻿@page "/deutsch/adj_suffix"
+@inject DeutschAdjSuffixService DeutschAdjSuffixService
+
+<PageTitle>DeutschAdjSuffix</PageTitle>
+
+@if (datas == null)
+{
+	<p><em>Loading...</em></p>
+}
+else
+{
+	<div>
+		<h2>Adjective Suffix</h2>
+		<div class="container">
+			@foreach (var type in typeList)
+			{
+				<div class="block_adj">
+					<table>
+						<caption>@type</caption>
+						<!--Column Header-->
+						<thead>
+							<tr>
+								<th></th>
+								@foreach (var gender in genders)
+								{
+									<th>@gender</th>
+								}
+							</tr>
+						</thead>
+						<tbody>
+							@foreach (var germanCase in cases)
+							{
+								<tr>
+									<!--Row Header-->
+									<th>@germanCase</th>
+									<!--Retrieve data-->
+									@foreach (var gender in genders)
+									{
+										<td>@GetValue(type, germanCase, gender)</td>
+									}
+								</tr>
+							}
+						</tbody>
+					</table>
+				</div>
+			}
+		</div>
+	</div>
+}
+
+
+@code {
+	private DictionaryMethods biMap = new DictionaryMethods();
+
+	@*Caption*@
+	private List<string> typeList = new List<string> { "Bestimmter Artikel", "Kein Artikel", "Unbestimmter Artikel", "Possessivpronomen" };
+
+	@*Row Header*@
+	private List<string> cases = new List<string> { "Nominativ", "Genitiv", "Dativ", "Akkusativ" };
+
+	@*Column Heaedr*@
+	private List<string> genders = new List<string> { "Maskulin", "Neutral", "Feminin", "Plural" };
+
+	private List<DeutschAdjSuffix>? datas;
+
+	protected override async Task OnInitializedAsync()
+	{
+		try
+		{
+			datas = await DeutschAdjSuffixService.GetDataAsync();
+
+			// transformation of type
+			biMap.Add("Bestimmter Artikel", "definite_article");
+			biMap.Add("Unbestimmter Artikel", "indefinite_article");
+			biMap.Add("Kein Artikel", "no_article");			
+			biMap.Add("Possessivpronomen", "possessive");
+
+			// transforamtion of case
+			biMap.Add("Nominativ", "Nominative");
+			biMap.Add("Genitiv", "Genitive");
+			biMap.Add("Dativ", "Dative");
+			biMap.Add("Akkusativ", "Accusative");
+
+			//transformation of gender
+			biMap.Add("Maskulin", "Masculine");
+			biMap.Add("Neutral", "Neuter");
+			biMap.Add("Feminin", "Feminine");
+			biMap.Add("Plural", "Plural");
+		}
+		catch (Exception ex)
+		{
+			Console.WriteLine($"Error: {ex.Message}");
+			Console.WriteLine($"Stack Trace: {ex.StackTrace}");
+		}
+	}
+
+	private List<DeutschAdjSuffix> get_data_list (string type)
+	{
+		List<DeutschAdjSuffix> sorted_datas = new List<DeutschAdjSuffix>();
+		foreach (var data in datas)
+		{
+			if (data.Type == biMap.Get(type))
+			{
+				sorted_datas.Add(data);
+			}
+			else
+				continue;
+		}
+		return sorted_datas;
+	}
+
+	private string? GetValue(string caption, string row, string col)
+	{
+		string type = biMap.Get(caption);
+		string german_case = biMap.Get(row);
+		string gender = biMap.Get(col);
+
+		@*
+		var values = from data in datas
+					 where data.Type == type &&
+						   data.GermanCase == german_case && 
+						   data.Gender == gender
+					 select data.Value;
+		*@
+		var values = datas.Where(data => data.Type == type && 
+										 data.GermanCase == german_case && 
+										 data.Gender == gender).Select(data => data.Value).FirstOrDefault();
+
+		return values ?? "";
+	}
+}

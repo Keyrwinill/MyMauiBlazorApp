@@ -1,0 +1,25 @@
+h2 {
+    text-align: center;
+}
+
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+th, td {
+    width: 100px;
+}
+
+caption {
+    display: table-caption;
+    caption-side: top;
+    text-align: center;
+    font-size: 150%;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}

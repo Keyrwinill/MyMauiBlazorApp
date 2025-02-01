@@ -1,20 +1,30 @@
-﻿using System.Net.Http;
-using System.Net.Http.Json;
+﻿using System.Net.Http.Json;
 using DataAccessLibrary.Models;
 
-namespace MauiBlazorApp.Web.Services;
-
-public class DeutschAdjSuffixService
+namespace MauiBlazorApp.Shared.Services
 {
-    private readonly HttpClient _httpClient;
-
-    public DeutschAdjSuffixService(HttpClient httpClient)
+    public interface IDeutschAdjSuffixService
     {
-        _httpClient = httpClient;
+        Task<List<DeutschAdjSuffix>> GetDataAsync();
     }
 
-    public async Task<List<DeutschAdjSuffix>> GetDeuAdjSuffixAsync()
+    public class DeutschAdjSuffixService : IDeutschAdjSuffixService
     {
-        return await _httpClient.GetFromJsonAsync<List<DeutschAdjSuffix>>("deutschadjsuffix");
+        private readonly HttpClient _httpClient;
+
+        public DeutschAdjSuffixService(HttpClient httpClient)
+        {
+            _httpClient = httpClient;
+        }
+
+        public async Task<List<DeutschAdjSuffix>> GetDataAsync()
+        {
+            var response = await _httpClient.GetAsync("deutschadjsuffix");
+            response.EnsureSuccessStatusCode();
+            var data = await response.Content.ReadFromJsonAsync<List<DeutschAdjSuffix>>();
+            return data;
+        }
     }
 }
+
+

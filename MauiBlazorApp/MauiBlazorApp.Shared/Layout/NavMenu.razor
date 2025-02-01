@@ -1,6 +1,6 @@
 ﻿<div class="top-row ps-3 navbar navbar-dark">
     <div class="container-fluid">
-        <a class="navbar-brand" href="">MauiBlazorApp</a>
+        <a class="navbar-brand" href="">Ködefalio</a>
     </div>
 </div>
 
@@ -25,6 +25,38 @@
                 <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Weather
             </NavLink>
         </div>
+
+        <!--Page: Personal Information-->
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="person">
+                <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Person
+            </NavLink>
+        </div>
+
+        <!--Page: Deutsch-->
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="deutsch" @onclick="() => ToggleSubMenu()">
+                <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Deutsch
+            </NavLink>
+            <!--Page: Adjective Suffix-->
+            @if (collapseNavMenu)
+            {
+                <nav class="flex-column">
+                    <div class="nav-item px-3">
+                        <NavLink class="nav-link" href="deutsch/adj_suffix">
+                            <span class="bi bi-plus-square-fill-nav-menu" aria-hidden="true"></span> Adjective Suffix
+                        </NavLink>
+                    </div>
+                </nav>
+            }
+        </div>
     </nav>
 </div>
 
+@code {
+    private bool collapseNavMenu = true;
+
+    private string? NavMenuCssClass => collapseNavMenu ? "collapse" : null;
+
+    private void ToggleSubMenu() => collapseNavMenu = !collapseNavMenu;
+}

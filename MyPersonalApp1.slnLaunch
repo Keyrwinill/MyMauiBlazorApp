@@ -1,0 +1,15 @@
+[
+  {
+    "Name": "New Profile",
+    "Projects": [
+      {
+        "Path": "MyWebServer\\MyWebServer.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "MauiBlazorApp\\MauiBlazorApp.Web\\MauiBlazorApp.Web.csproj",
+        "Action": "Start"
+      }
+    ]
+  }
+]
